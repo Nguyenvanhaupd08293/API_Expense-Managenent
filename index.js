@@ -26,18 +26,18 @@ app.use(cors());
 app.get("/", (req, res) => {
     res.json({ 'message': 'API NodeJS Assignment' });
 });
-const projectRouter = require('./router/project');
 const spendingRouter = require('./router/spending');
-const taskRouter = require('./router/task');
 const accountRouter = require('./router/account');
 const incomeRouter = require('./router/income');
 const categorySpend = require('./router/categorySpend')
-app.use('/', projectRouter);
+const categoryIncome = require('./router/categoryIncome')
+const paymentmethodRouter = require('./router/payment_method');
 app.use('/', spendingRouter);
-app.use('/', taskRouter);
 app.use('/', accountRouter);
 app.use('/', incomeRouter);
 app.use('/', categorySpend);
+app.use('/', categoryIncome);
+app.use('/', paymentmethodRouter);
 
 
 app.listen(PORT, () => {
